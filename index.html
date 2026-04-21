@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Legend Landing</title>
+    <style>
+        :root {
+            --primary: #ff0055; /* Розовый акцент */
+            --bg: #050505;
+            --card-bg: #111;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- LOADER --- */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid #333;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        header {
+            padding: 100px 20px 50px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        h1 { font-size: 3rem; margin: 0; color: var(--primary); text-shadow: 2px 2px 0px #fff; }
+
+        /* --- АНИМАЦИЯ ПОЯВЛЕНИЯ --- */
+        .reveal {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border: 3px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* HOVER: Карточка светится и дергается */
+        .video-card:hover {
+            border-color: var(--primary);
+            transform: rotate(1deg) translateY(-10px);
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.5);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-top: 100%; /* Делаем квадратным для мемов */
+            background: #000;
+        }
+
+        video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* АНИМАЦИЯ КНОПКИ */
+        .btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: white;
+            animation: shake 0.2s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px); }
+            50% { transform: translate(-1px, -1px); }
+            100% { transform: translate(1px, -1px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader"><div class="spinner"></div></div>
+
+    <header class="reveal">
+        <h1>Золотой фонд мемов</h1>
+        <p>Эти легенды не умирают</p>
+    </header>
+
+    <div class="container">
+        <div class="video-card reveal">
+            <div class="video-wrapper">
+                <video muted loop controls poster="https://media.giphy.com/media/Vuw9m5WBxpR4c/giphy.gif">
+                    <source src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJndXIzcXV2N3R4YjR5Z3R4YmR4YmR4YmR4YmR4YmR4YmR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/Vuw9m5WBxpR4c/giphy.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="content">
+                <h3>Rick Astley</h3>
+                <button class="btn">Никогда не сдамся</button>
+            </div>
+        </div>
+
+        <div class="video-card reveal">
+            <div class="video-wrapper">
+                <video muted loop controls>
+                    <source src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3NueXNqOHZ6N3R4YjR5Z3R4YmR4YmR4YmR4YmR4YmR4YmR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/CAYVZA5NRb529kKQUc/giphy.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="content">
+                <h3>GigaChad</h3>
+                <button class="btn">Средний ценитель</button>
+            </div>
+        </div>
+
+        <div class="video-card reveal">
+            <div class="video-wrapper">
+                <video muted loop controls>
+                    <source src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3R4YjR5Z3R4YmR4YmR4YmR4YmR4YmR4YmR4YmR4YmR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/j6ZlX8ghxNFRknObVk/giphy.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="content">
+                <h3>Coffin Dance</h3>
+                <button class="btn">F в чате</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Убираем лоадер
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }, 1000);
+        });
+
+        // Следим за скроллом
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
